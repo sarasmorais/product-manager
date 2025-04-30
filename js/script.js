@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const URL_DO_SUPABASE = 'https://jdkfzrkyzviivvpvzovk.supabase.co';
     const CHAVE_ANONIMA = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impka2Z6cmt5enZpaXZ2cHZ6b3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwMzIyODksImV4cCI6MjA2MTYwODI4OX0.MlmTThPoNNfnrTyBnERb0aTAlx8bp8xG5TrQ2_-xJV0';
 
+    const supabase = window.supabase.createClient(URL_DO_SUPABASE, CHAVE_ANONIMA)
     
   function formatarData(textoData) {
     if (!textoData) return '-';
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded',function(){
    async function buscarEMostrarProdutos() {
     try {
       const {data, error} = await supabase
-          .from(produtos)
+          .from('produtos')
           .select('*')
           .order('id');
 
