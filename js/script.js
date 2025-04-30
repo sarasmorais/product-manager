@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded',function(){
     async function buscarEMostrarProdutos(){
         try{
             const {data,error} = await supabase
-                .from(produtos)
+                .from('produtos')
                 .select('*')
                 .order('id');
             if(error){
