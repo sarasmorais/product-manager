@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const hora = data.getHours().toString().padStart(2, '0');
     const minutos = data.getMinutes().toString().padStart(2, '0');
 
-    // Retorna no formato DD/MM/YYYY HH:MM
+
     return `${dia}/${mes}/${ano} ${hora}:${minutos}`;
   }
 
@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  // Evento de submissão do formulário - CORRIGIDO (apenas um listener)
   document.getElementById('formAdicionarProduto').addEventListener('submit', async function (event) {
     event.preventDefault();
 
@@ -140,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
         throw new Error('Erro ao adicionar produto: ' + error.message);
       }
 
-      // Feedback visual
       const btnSubmit = this.querySelector('button[type="submit"]');
       const textoOriginal = btnSubmit.textContent;
       btnSubmit.textContent = 'Produto Adicionado!';

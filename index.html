@@ -1,20 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <title>Document</title>
+    <title>Sistema de Gerenciamento de Produtos</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
 </head>
 <body>
     <div class="container">
-        <h1>Produtos Cadastrados</h1>
-
-        <div id="mensagemCarregando" class="loading">Carregando dados do supabase...</div>
-
+        <h1>Sistema de Gerenciamento de Produtos</h1>
+        
+       
+        <div class="add-prod">
+            <h2>Adicionar Novo Produto</h2>
+            <form id="formAdicionarProduto">
+                <input type="text" id="novoNome" placeholder="Nome do produto" required>
+                <input type="text" id="novaDescricao" placeholder="Descrição do produto">
+                <input type="number" id="novoPreco" placeholder="Preço (R$)" required step="0.01" min="0">
+                <input type="number" id="novoEstoque" placeholder="Quantidade" required min="0">
+                <button type="submit">Adicionar Produto</button>
+            </form>
+        </div>
+        
+       
+        <div id="mensagemCarregando" class="loading">Carregando produtos...</div>
         <div id="mensagemErro" class="error" style="display: none"></div>
-
+        
+       
         <table id="tabelaProdutos" style="display: none">
             <thead>
                 <tr>
@@ -27,11 +41,10 @@
                 </tr>
             </thead>
             <tbody id="corpoDaTabela">
-
             </tbody>
         </table>
-
     </div>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
